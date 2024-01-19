@@ -1,0 +1,4 @@
+com/tmc/registration/jpa/UserRepository.class
+com/tmc/registration/jpa/User.class
+com/tmc/registration/RegistrationApplication.class
+com/tmc/registration/controller/RegistrationController.class
