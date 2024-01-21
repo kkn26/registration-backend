@@ -1,6 +1,10 @@
 package com.tmc.registration.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,6 +43,11 @@ public class RegistrationController {
 		}
 	}
 	
+	@GetMapping("/viewReport")
+	 public List<User> findUsers() {
+ 
+        return (List<User>) userRepository.findAll();
+    }
 	
 
 }
