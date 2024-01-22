@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tmc.registration.jpa.User;
 import com.tmc.registration.jpa.UserRepository;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/register")
 public class RegistrationController {
