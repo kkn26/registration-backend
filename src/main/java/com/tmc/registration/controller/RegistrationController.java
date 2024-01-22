@@ -18,18 +18,18 @@ import com.tmc.registration.jpa.UserRepository;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("/register")
+//@RequestMapping("/register")
 public class RegistrationController {
 	
 	@Autowired
 	UserRepository userRepository; 
 	
-	@GetMapping("/")
+	@GetMapping("/register")
 	public @ResponseBody ResponseEntity<String> get() {
 	    return new ResponseEntity<String>("GET Response", HttpStatus.OK);
 	}
 	
-	@PostMapping("/create")
+	@PostMapping("/register/create")
 	public ResponseEntity<User> createUser(@RequestBody User user) {
 		try {
 			System.out.println("Coming to createUser.");
