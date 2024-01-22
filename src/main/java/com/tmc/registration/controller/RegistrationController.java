@@ -1,5 +1,6 @@
 package com.tmc.registration.controller;
  
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired; 
@@ -24,12 +25,12 @@ public class RegistrationController {
 	@Autowired
 	UserRepository userRepository; 
 	
-	@GetMapping("/register")
+	@GetMapping("/")
 	public @ResponseBody ResponseEntity<String> get() {
 	    return new ResponseEntity<String>("GET Response", HttpStatus.OK);
 	}
 	
-	@PostMapping("/register/create")
+	@PostMapping("/create")
 	public ResponseEntity<User> createUser(@RequestBody User user) {
 		try {
 			System.out.println("Coming to createUser.");
@@ -39,6 +40,7 @@ public class RegistrationController {
 			return new ResponseEntity<User>(mUser, HttpStatus.CREATED);
 			
 		} catch (Exception e) {
+			System.out.println("Error :"+ e.getMessage());
 			return new ResponseEntity<>(null, 
 					    HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -46,8 +48,11 @@ public class RegistrationController {
 	
 	@GetMapping("/viewReport")
 	 public List<User> findUsers() {
- 
-        return (List<User>) userRepository.findAll();
+        User user = new User();
+		user.setFirstName("Khai");
+		List list = new ArrayList();
+		list.add(user);
+        return list; //(List<User>) userRepository.findAll();
     }
 	
 
