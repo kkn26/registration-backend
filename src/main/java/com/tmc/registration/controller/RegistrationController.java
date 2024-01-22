@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,7 +33,8 @@ public class RegistrationController {
 	
 	@PostMapping("/create")
 	public ResponseEntity<User> createUser(@RequestBody User user) {
-		try { 
+		try {
+			System.out.println("Coming to createUser.");
 			User mUser = new User();
 			mUser = user;
 			userRepository.save(mUser); 
