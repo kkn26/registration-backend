@@ -25,10 +25,11 @@ public class RegistrationController {
 	@Autowired
 	UserRepository userRepository; 
 	
-	@GetMapping("/")
-	public @ResponseBody ResponseEntity<String> get() {
-	    return new ResponseEntity<String>("GET Response", HttpStatus.OK);
-	}
+	@CrossOrigin(origins = "https://tmcregistration.azurewebsites.net")
+	@GetMapping("/greeting")
+	public Greeting greeting(@RequestParam(required = false, defaultValue = "World") String name) {
+		System.out.println("==== Get Greeting ====");
+		return new Greeting(counter.incrementAndGet(), String.format(template, name));
 	
 	@PostMapping("/create")
 	public ResponseEntity<User> createUser(@RequestBody User user) {
