@@ -11,14 +11,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  	@Value("${allowed.origins}")
      private String allowedOrigins;
 	
-     @Override
-     public void addCorsMappings(CorsRegistry registry) {
-     	// Add your Angular app URL 
-         registry.addMapping("/**")
- 	        .allowedOrigins(allowedOrigins.split(","))
- 	        .allowedMethods("*") 
- 	        .allowedHeaders("*");
-     } 
+    //  @Override
+    //  public void addCorsMappings(CorsRegistry registry) {
+    //  	// Add your Angular app URL 
+    //      registry.addMapping("/**")
+ 	//         .allowedOrigins(allowedOrigins.split(","))
+ 	//         .allowedMethods("*") 
+ 	//         .allowedHeaders("*");
+    //  } 
  
  }
 
