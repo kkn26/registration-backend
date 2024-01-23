@@ -10,12 +10,12 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig { 
-@Bean
-public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-    http.authorizeHttpRequests(authorizeRequests -> authorizeRequests.anyRequest()
-      .permitAll())
-      .csrf(AbstractHttpConfigurer::disable);
-    return http.build();
-}  
-
+	@Bean
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+	  System.out.println("Coming to WebSecurityConfig. ");
+	    http.authorizeHttpRequests(authorizeRequests -> authorizeRequests.anyRequest()
+	      .permitAll())
+	      .csrf(AbstractHttpConfigurer::disable);
+	    return http.build();
+	}  
 }
