@@ -46,11 +46,13 @@ public class RegistrationController {
 		}
 	}
 	
+	 
 	@GetMapping("/viewReport")
 	 public List<User> findUsers() {
         User user = new User();
 		user.setFirstName("Khai");
-		List list = new ArrayList();
+		 
+		List<User> list = new ArrayList<User>();
 		list.add(user);
         return list; //(List<User>) userRepository.findAll();
     }
