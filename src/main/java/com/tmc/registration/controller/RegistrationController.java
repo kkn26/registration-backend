@@ -19,7 +19,7 @@ import com.tmc.registration.jpa.UserRepository;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-//@RequestMapping("/register")
+@RequestMapping("/api")
 public class RegistrationController {
 	
 	@Autowired
