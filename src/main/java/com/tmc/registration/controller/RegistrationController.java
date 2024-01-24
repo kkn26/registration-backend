@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,9 +28,10 @@ public class RegistrationController {
 	
 	@CrossOrigin(origins = "https://tmcregistration.azurewebsites.net")
 	@GetMapping("/greeting")
-	public Greeting greeting(@RequestParam(required = false, defaultValue = "World") String name) {
+	public String greeting(@RequestParam(required = false, defaultValue = "World") String name) {
 		System.out.println("==== Get Greeting ====");
-		return new Greeting(counter.incrementAndGet(), String.format(template, name));
+		return "==== Get Greeting ====";
+	}
 	
 	@PostMapping("/create")
 	public ResponseEntity<User> createUser(@RequestBody User user) {
@@ -56,7 +58,6 @@ public class RegistrationController {
 		List<User> list = new ArrayList<User>();
 		list.add(user);
         return list; //(List<User>) userRepository.findAll();
-    }
-	
+    } 
 
 }
