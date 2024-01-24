@@ -12,7 +12,7 @@ import jakarta.persistence.Id;
 public class User {
 	
 	private Integer id;
-	private Integer classDuration;
+	private String classDuration;
 	private String firstName; 
 	private String lastName;
 	private String gender;
@@ -137,11 +137,11 @@ public class User {
 	} 
 	
 	@Column(name = "calss_duration")
-	public Integer getClassDuration() {
+	public String getClassDuration() {
 		return classDuration;
 	}
 
-	public void setClassDuration(Integer classDuration) {
+	public void setClassDuration(String classDuration) {
 		this.classDuration = classDuration;
 	}
 
