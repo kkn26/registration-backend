@@ -1,8 +1,6 @@
 package com.tmc.registration.controller;
  
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.List; 
 import org.springframework.beans.factory.annotation.Autowired; 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,13 +8,11 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestMapping; 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tmc.registration.jpa.User;
-import com.tmc.registration.jpa.UserRepository;
+import com.tmc.registration.jpa.User; 
+import com.tmc.registration.service.UserService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
@@ -24,14 +20,7 @@ import com.tmc.registration.jpa.UserRepository;
 public class RegistrationController {
 	
 	@Autowired
-	UserRepository userRepository; 
-	
-	@CrossOrigin(origins = "https://tmcregistration.azurewebsites.net")
-	@GetMapping("/greeting")
-	public String greeting(@RequestParam(required = false, defaultValue = "World") String name) {
-		System.out.println("==== Get Greeting ====");
-		return "==== Get Greeting ====";
-	}
+	UserService service;  
 	
 	@PostMapping("/create")
 	public ResponseEntity<User> createUser(@RequestBody User user) {
@@ -39,7 +28,7 @@ public class RegistrationController {
 			System.out.println("Coming to createUser.");
 			User mUser = new User();
 			mUser = user;
-			userRepository.save(mUser); 
+			service.save(mUser); 
 			return new ResponseEntity<User>(mUser, HttpStatus.CREATED);
 			
 		} catch (Exception e) {
@@ -47,17 +36,11 @@ public class RegistrationController {
 			return new ResponseEntity<>(null, 
 					    HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-	}
-	
+	} 
 	 
 	@GetMapping("/viewReport")
-	 public List<User> findUsers() {
-        User user = new User();
-		user.setFirstName("Khai");
-		 
-		List<User> list = new ArrayList<User>();
-		list.add(user);
-        return list; //(List<User>) userRepository.findAll();
-    } 
-
+	 public List<User> findUsers() { 
+		List<User> users =  service.findAll(); 
+        return users; 
+    }  
 }
