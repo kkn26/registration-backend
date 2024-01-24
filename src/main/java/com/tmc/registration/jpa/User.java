@@ -1,6 +1,5 @@
 package com.tmc.registration.jpa;
-
-import java.util.List;
+ 
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,11 +20,11 @@ public class User {
 	private String zip;
 	private String state;
 	private String phoneNumber;
+	private String email;
 	private String contactName;
 	private String contactPhone; 
-	private String contactRelationship;
-	private String email;
-
+	private String contactRelationship; 
+	private boolean isGoodHealth; 
 	private String healthInformation;
     private String healthInsuranceCompany;
     private String pastAttendance;
@@ -158,8 +157,7 @@ public class User {
 		this.email = email;
 	}
 	
-	@Column(name = "is_good_health")
-	private boolean isGoodHealth; 
+	@Column(name = "good_health") 
     public boolean isGoodHealth() {
 		return isGoodHealth;
 	}
