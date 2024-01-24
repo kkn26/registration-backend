@@ -1,5 +1,7 @@
 package com.tmc.registration.jpa;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,7 +11,8 @@ import jakarta.persistence.Id;
 @Entity
 public class User {
 	
-	private Integer id; 
+	private Integer id;
+	private Integer classDuration;
 	private String firstName; 
 	private String lastName;
 	private String gender;
@@ -22,6 +25,12 @@ public class User {
 	private String contactPhone; 
 	private String contactRelationship;
 	private String email;
+
+	private String healthInformation;
+    private String healthInsuranceCompany;
+    private String pastAttendance;
+    private String paymentType;
+    private String paymentCode;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -127,6 +136,15 @@ public class User {
 		return contactRelationship;
 	} 
 	
+	@Column(name = "calss_duration")
+	public Integer getClassDuration() {
+		return classDuration;
+	}
+
+	public void setClassDuration(Integer classDuration) {
+		this.classDuration = classDuration;
+	}
+
 	public void setContactRelationship(String contactRelationship) {
 		this.contactRelationship = contactRelationship;
 	}
@@ -139,4 +157,60 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	@Column(name = "is_good_health")
+	private boolean isGoodHealth; 
+    public boolean isGoodHealth() {
+		return isGoodHealth;
+	}
+
+	public void setGoodHealth(boolean isGoodHealth) {
+		this.isGoodHealth = isGoodHealth;
+	}
+
+	@Column(name = "health_information")
+	public String getHealthInformation() {
+		return healthInformation;
+	}
+
+	public void setHealthInformation(String healthInformation) {
+		this.healthInformation = healthInformation;
+	}
+
+	@Column(name = "health_insurance_company")
+	public String getHealthInsuranceCompany() {
+		return healthInsuranceCompany;
+	}
+
+	public void setHealthInsuranceCompany(String healthInsuranceCompany) {
+		this.healthInsuranceCompany = healthInsuranceCompany;
+	}
+
+	@Column(name = "past_attendance")
+	public String getPastAttendance() {
+		return pastAttendance;
+	}
+
+	public void setPastAttendance(String pastAttendance) {
+		this.pastAttendance = pastAttendance;
+	}
+
+	@Column(name = "payment_type")
+	public String getPaymentType() {
+		return paymentType;
+	}
+
+	public void setPaymentType(String paymentType) {
+		this.paymentType = paymentType;
+	}
+
+	@Column(name = "payment_code")
+	public String getPaymentCode() {
+		return paymentCode;
+	}
+
+	public void setPaymentCode(String paymentCode) {
+		this.paymentCode = paymentCode;
+	}
+
 }
